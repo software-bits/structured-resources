@@ -22,7 +22,7 @@ export class TestStackStack extends Stack {
         this.resources.dynamo.for('orderHistory').grantReadData(lambdaFn);
         this.resources.imports.for('pushNotificationTopic').grantPublish(lambdaFn);
       });
-    
+
     /**
      * Set subscriptions
      */
