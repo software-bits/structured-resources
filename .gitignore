@@ -102,3 +102,13 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Additional
+/dist
+/examples/cdk-stack/cdk.out
+/examples/cdk-stack/node_modules
+.DS_Store
+
+# ignore compiled files
+*.d.ts
+*.js
