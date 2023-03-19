@@ -18,7 +18,6 @@ jest.config.*
 .eslintignore 
 .eslintrc.json     
 /.github
-/.husky
 tsconfig.json
 
 # ignore examples
