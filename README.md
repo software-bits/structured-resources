@@ -8,7 +8,9 @@ It is designed to help create a clear stack definition, so that you can easily s
 
 ## Installation
 
-- add here how to install
+```
+npm install structured-resources
+```
 
 ## Usage
 
