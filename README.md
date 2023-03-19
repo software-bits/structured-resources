@@ -44,7 +44,7 @@ structuredResources.all().testA().data; // returns { fooOne: 123, fooTwo: 123 }
 structuredResources.select("fooOne"); // returns FooOne instance
 ```
 
-See [/examples](https://github.com/software-bits/structured-resources/tree/main/examples) for an example with `aws-cdk`.
+See [/examples/cdk-stack](https://github.com/software-bits/structured-resources/tree/main/examples/cdk-stack) for an example with `aws-cdk`.
 
 ## Advanced examples
 
