@@ -19,7 +19,7 @@ export class BaseStructuredResources<T extends Record<string, Resource>> {
   /**
    * Pick resources and return new object with same attributes as the selected resource.
    */
-  protected pickResources<Key extends keyof T>(...resources: [Key, ...Key[]]) {
+  protected pickResources<Keys extends [keyof T, ...(keyof T)[]]>(...resources: Keys) {
     const pickedResources = new ResourcePicker(this.resources).pickResources(
       ...resources
     );

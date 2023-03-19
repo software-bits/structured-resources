@@ -10,10 +10,8 @@ export class StructuredResources<
    * Pick some resources from list.
    * Returns new object with same attributes as the selected resources.
    */
-  for<Key extends keyof T>(
-    ...resources: [Key, ...Key[]]
-  ): InheritedStructuredResourceAttributes<T, Key> &
-    CustomMethods<InheritedStructuredResourceAttributes<T, Key>> {
+  for<Keys extends [keyof T, ...(keyof T)[]]>(...resources: Keys): InheritedStructuredResourceAttributes<T, Keys[number]> &
+    CustomMethods<InheritedStructuredResourceAttributes<T, Keys[number]>> {
     return this.pickResources(...resources) as T[keyof T];
   }
 
@@ -37,7 +35,7 @@ export class StructuredResources<
    * Select multiple resources from list.
    * Returns array of selected resources.
    */
-  selectSome<Key extends keyof T>(...resources: Key[]): T[Key][] {
+  selectSome<Keys extends [keyof T, ...(keyof T)[]]>(...resources: Keys): T[Keys[number]][] {
     return resources.map((resource) => this.resources[resource]);
   }
 

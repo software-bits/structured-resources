@@ -92,12 +92,10 @@ export class ResourcePicker<
     return deduplicate(getAttributes(singleResource));
   }
 
-  public pickResources<Key extends keyof T>(
-    ...resources: [Key, ...Key[]]
-  ): InheritedStructuredResourceAttributes<T, Key> {
+  public pickResources<Keys extends [keyof T, ...(keyof T)[]]>(...resources: Keys): InheritedStructuredResourceAttributes<T, Keys[number]> {
     const firstResourceName = resources[0];
     const firstResource = this.allResources[firstResourceName];
     const resourceAttributes = this.getAllInheritedAttributes(firstResource);
-    return Object.fromEntries(resourceAttributes.map((attributeName) => [attributeName, this.pickResourceAttributes(resources, attributeName)])) as InheritedStructuredResourceAttributes<T, Key>
+    return Object.fromEntries(resourceAttributes.map((attributeName) => [attributeName, this.pickResourceAttributes(resources, attributeName)])) as InheritedStructuredResourceAttributes<T, Keys[number]>
   }
 }
