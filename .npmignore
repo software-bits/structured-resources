@@ -9,6 +9,7 @@
 
 # ignore test folders
 /test
+/dist/test
 /coverage
 
 # ignore dev files
@@ -22,4 +23,5 @@ tsconfig.json
 
 # ignore examples
 /examples
+/dist/examples
 
