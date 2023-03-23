@@ -59,7 +59,7 @@ export class ResourcePicker<
       ? (...args: unknown[]) => {
           resourceNames.forEach((resource) =>
             this.promiseManager.addPromise(
-              resource,
+              resource as string,
               (
                 this.allResources[resource][
                   attributeName
