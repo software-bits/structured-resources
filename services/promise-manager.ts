@@ -4,7 +4,7 @@ import { StructuredPromise } from "../constructs/structured-promise";
 
 export class PromiseManager<PromiseType extends Promise<unknown>> {
   private promises: Record<
-    string | number | symbol,
+    string,
     StructuredPromise<PromiseType> | StructuredPromise<PromiseType>[]
   >;
 
@@ -21,7 +21,7 @@ export class PromiseManager<PromiseType extends Promise<unknown>> {
     );
   }
 
-  public addPromise(key: string | number | symbol, promise: PromiseType) {
+  public addPromise(key: string, promise: PromiseType) {
     const keyElement = this.promises[key];
     if (keyElement !== undefined) {
       if (this.isPromiseArray(keyElement)) {
@@ -36,7 +36,7 @@ export class PromiseManager<PromiseType extends Promise<unknown>> {
 
   private formatPromises(
     promises: Record<
-      string | number | symbol,
+      string,
       StructuredPromise<PromiseType>[] | StructuredPromise<PromiseType>
     >
   ) {

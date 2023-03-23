@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented here.
 
+## [0.1.3] - 2023-03-23
+### Changed
+- typing to be backward compatible from typescript version 4.2.x onwards
+
 ## [0.1.2] - 2023-03-19
 
 ### Changed 

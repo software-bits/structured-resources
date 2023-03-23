@@ -5,14 +5,14 @@ import { ResolvedPromise } from "./resolved-promise";
 type PickMethods<T> = PickByType<T, (...a: any) => any>;
 
 type ObjectValuesAsArray<
-  T extends { [Key: string | number | symbol]: unknown } | undefined
+  T extends { [Key: string]: unknown } | undefined
 > = {
   [Key in keyof T]: [T[Key]];
 };
 
 type MergeReturnTypes<
-  T extends { [Key: string | number | symbol]: unknown[] },
-  W extends { [Key: string | number | symbol]: unknown }
+  T extends { [Key: string]: unknown[] },
+  W extends { [Key: string]: unknown }
 > = {
   [Key in keyof T & keyof W]: [...T[Key], W[Key]];
 };
@@ -20,10 +20,10 @@ type MergeReturnTypes<
 export type ReplaceEveryReturnType<
   T extends object,
   ResolvedValue extends
-    | { [Key: string | number | symbol]: unknown[] }
+    | { [Key: string]: unknown[] }
     | undefined,
   PromisedValue extends
-    | { [Key: string | number | symbol]: unknown[] }
+    | { [Key: string]: unknown[] }
     | undefined
 > = {
   [Key in keyof T]: T[Key] extends (...a: any) => any
@@ -31,7 +31,7 @@ export type ReplaceEveryReturnType<
         T[Key],
         ReplaceEveryReturnType<
           T,
-          ResolvedValue extends { [Key: string | number | symbol]: unknown[] }
+          ResolvedValue extends { [Key: string]: unknown[] }
             ? MergeReturnTypes<
                 ResolvedValue,
                 ResolvedPromise<ReturnType<ReturnType<T[Key]>["promise"]>>
@@ -39,7 +39,7 @@ export type ReplaceEveryReturnType<
             : ObjectValuesAsArray<
                 ResolvedPromise<ReturnType<ReturnType<T[Key]>["promise"]>>
               >,
-          PromisedValue extends { [Key: string | number | symbol]: unknown[] }
+          PromisedValue extends { [Key: string]: unknown[] }
             ? MergeReturnTypes<PromisedValue, ReturnType<T[Key]>["data"]>
             : ObjectValuesAsArray<ReturnType<T[Key]>["data"]>
         >
