@@ -1,6 +1,6 @@
 {
   "name": "structured-resources",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A structured way to define resources. Built to bring structure into stacks with many resources, like in AWS CDK or a smart home setup.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
